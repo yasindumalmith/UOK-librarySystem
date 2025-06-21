@@ -31,8 +31,8 @@
             panel1 = new Panel();
             button5 = new Button();
             button2 = new Button();
-            button4 = new Button();
-            button1 = new Button();
+            btnCart = new Button();
+            btnShowBook = new Button();
             button3 = new Button();
             stuPanel1 = new Panel();
             btnShowRes = new Button();
@@ -41,9 +41,14 @@
             stuGrid = new DataGridView();
             stuCategory = new ComboBox();
             label1 = new Label();
+            cartPanel = new Panel();
+            label2 = new Label();
+            cartGridView = new DataGridView();
             panel1.SuspendLayout();
             stuPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)stuGrid).BeginInit();
+            cartPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)cartGridView).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -51,8 +56,8 @@
             panel1.BackColor = Color.ForestGreen;
             panel1.Controls.Add(button5);
             panel1.Controls.Add(button2);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnCart);
+            panel1.Controls.Add(btnShowBook);
             panel1.Controls.Add(button3);
             panel1.Location = new Point(2, 12);
             panel1.Name = "panel1";
@@ -79,25 +84,27 @@
             button2.Text = "Profile";
             button2.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnCart
             // 
-            button4.BackColor = Color.Yellow;
-            button4.Location = new Point(39, 220);
-            button4.Name = "button4";
-            button4.Size = new Size(109, 55);
-            button4.TabIndex = 4;
-            button4.Text = "Cart";
-            button4.UseVisualStyleBackColor = false;
+            btnCart.BackColor = Color.Yellow;
+            btnCart.Location = new Point(39, 220);
+            btnCart.Name = "btnCart";
+            btnCart.Size = new Size(109, 55);
+            btnCart.TabIndex = 4;
+            btnCart.Text = "Cart";
+            btnCart.UseVisualStyleBackColor = false;
+            btnCart.Click += btnCart_Click;
             // 
-            // button1
+            // btnShowBook
             // 
-            button1.BackColor = Color.Yellow;
-            button1.Location = new Point(39, 56);
-            button1.Name = "button1";
-            button1.Size = new Size(109, 54);
-            button1.TabIndex = 1;
-            button1.Text = "Show Book";
-            button1.UseVisualStyleBackColor = false;
+            btnShowBook.BackColor = Color.Yellow;
+            btnShowBook.Location = new Point(39, 56);
+            btnShowBook.Name = "btnShowBook";
+            btnShowBook.Size = new Size(109, 54);
+            btnShowBook.TabIndex = 1;
+            btnShowBook.Text = "Show Book";
+            btnShowBook.UseVisualStyleBackColor = false;
+            btnShowBook.Click += btnShowBook_Click;
             // 
             // button3
             // 
@@ -111,12 +118,16 @@
             // 
             // stuPanel1
             // 
+            Controls.Add(stuPanel1);
+            Controls.Add(cartPanel);
+            Controls.Add(panel1);
             stuPanel1.Controls.Add(btnShowRes);
             stuPanel1.Controls.Add(addToCart);
             stuPanel1.Controls.Add(stuClear);
             stuPanel1.Controls.Add(stuGrid);
             stuPanel1.Controls.Add(stuCategory);
             stuPanel1.Controls.Add(label1);
+            cartPanel.Location = new Point(182, 115);
             stuPanel1.Location = new Point(308, 68);
             stuPanel1.Name = "stuPanel1";
             stuPanel1.Size = new Size(844, 567);
@@ -140,6 +151,7 @@
             addToCart.TabIndex = 6;
             addToCart.Text = "Add to Cart ";
             addToCart.UseVisualStyleBackColor = true;
+            addToCart.Click += addToCart_Click;
             // 
             // stuClear
             // 
@@ -158,6 +170,7 @@
             stuGrid.RowHeadersWidth = 51;
             stuGrid.Size = new Size(502, 302);
             stuGrid.TabIndex = 4;
+            stuGrid.CellContentClick += stuGrid_CellContentClick;
             // 
             // stuCategory
             // 
@@ -177,10 +190,39 @@
             label1.TabIndex = 0;
             label1.Text = "Category";
             // 
+            // cartPanel
+            // 
+            cartPanel.Controls.Add(label2);
+            cartPanel.Controls.Add(cartGridView);
+            cartPanel.Location = new Point(182, 130);
+            cartPanel.Name = "cartPanel";
+            cartPanel.Size = new Size(522, 324);
+            cartPanel.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(219, 239);
+            label2.Name = "label2";
+            label2.Size = new Size(69, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Your Cart";
+            // 
+            // cartGridView
+            // 
+            cartGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            cartGridView.Location = new Point(36, 23);
+            cartGridView.Name = "cartGridView";
+            cartGridView.RowHeadersWidth = 51;
+            cartGridView.Size = new Size(451, 188);
+            cartGridView.TabIndex = 0;
+            // 
             // Student
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.libraryIm1;
+            BackgroundImageLayout = ImageLayout.None;
             ClientSize = new Size(1253, 678);
             Controls.Add(stuPanel1);
             Controls.Add(panel1);
@@ -190,6 +232,9 @@
             stuPanel1.ResumeLayout(false);
             stuPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)stuGrid).EndInit();
+            cartPanel.ResumeLayout(false);
+            cartPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)cartGridView).EndInit();
             ResumeLayout(false);
         }
 
@@ -198,8 +243,8 @@
         private Panel panel1;
         private Button button5;
         private Button button2;
-        private Button button4;
-        private Button button1;
+        private Button btnCart;
+        private Button btnShowBook;
         private Button button3;
         private Panel stuPanel1;
         private Button btnShowRes;
@@ -208,5 +253,8 @@
         private DataGridView stuGrid;
         private ComboBox stuCategory;
         private Label label1;
+        private Panel cartPanel;
+        private Label label2;
+        private DataGridView cartGridView;
     }
 }

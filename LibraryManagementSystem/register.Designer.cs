@@ -172,6 +172,7 @@
             regPw.Name = "regPw";
             regPw.Size = new Size(125, 27);
             regPw.TabIndex = 13;
+            regPw.UseSystemPasswordChar = true;
             // 
             // comboGender
             // 

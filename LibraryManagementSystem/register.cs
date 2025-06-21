@@ -38,6 +38,8 @@ namespace LibraryManagementSystem
             RegisterInfo ri = new RegisterInfo(connectionString, stuName, year, age, gender, userName, password);
             ri.uploadToDatabase();
             clear();
+            MessageBox.Show(Text = "Registration Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
 
         }
         public class RegisterInfo

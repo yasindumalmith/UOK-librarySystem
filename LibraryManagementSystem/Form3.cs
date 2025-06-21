@@ -22,11 +22,21 @@ namespace LibraryManagementSystem
         {
             string connectionString = "Data source=(localdb)\\MSSQLLocalDB; Initial Catalog=LibraryManagement; Integrated Security=True;";
             string query = "SELECT StudentId, StudentName, Year, Age, Gender FROM userInfo;";
-            using SqlConnection conn=new SqlConnection(connectionString);
+            using SqlConnection conn = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
             studentDataGrid.DataSource = dataTable;
+        }
+
+        private void btnStuUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void studentDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

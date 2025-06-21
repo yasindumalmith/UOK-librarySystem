@@ -17,6 +17,7 @@ namespace LibraryManagementSystem
 
     {
         string connectionString = "Data Source=(localdb)\\MSSQLLocalDB; Initial Catalog=LibraryManagement; Integrated Security=True;";
+        private string user;
 
         public Student()
         {
@@ -24,6 +25,16 @@ namespace LibraryManagementSystem
 
             InitializeComponent();
             loadCombo();
+        }
+        public Student(string loggedInUser)
+        {
+            this.user = loggedInUser;
+            MessageBox.Show(Text = "Welcome " + user + " to the Library Management System", "Welcome", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            InitializeComponent();
+            loadCombo();
+            stuPanel1.Visible = false;
+            cartPanel.Visible = false;
+
         }
         public void loadCombo()
         {
@@ -53,7 +64,7 @@ namespace LibraryManagementSystem
 
         private void btnShowRes_Click(object sender, EventArgs e)
         {
-            using SqlConnection conn=new SqlConnection(connectionString);
+            using SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             string category = stuCategory.Text;
             string query = "SELECT b.Bookid,b.Title,b.Author,b.ISBN FROM BOOK b WHERE b.category=@category";
@@ -65,11 +76,77 @@ namespace LibraryManagementSystem
             stuGrid.DataSource = dt;
 
         }
-    }
 
-    public class data
-    {
+        private void stuGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = stuGrid.Rows[e.RowIndex];
+                string bookId = row.Cells["Bookid"].Value.ToString();
+                string title = row.Cells["Title"].Value.ToString();
+                string author = row.Cells["Author"].Value.ToString();
+                string isbn = row.Cells["ISBN"].Value.ToString();
+
+
+            }
+        }
+
+        private void addToCart_Click(object sender, EventArgs e)
+        {
+            using SqlConnection sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            string query = "INSERT INTO Cart (BookId, StuId, Date) VALUES (@BookId, @StuId, @Date)";
+            using SqlCommand cmd = new SqlCommand(query, sqlConnection);
+            cmd.Parameters.AddWithValue("@BookId", stuGrid.CurrentRow.Cells["Bookid"].Value);
+            cmd.Parameters.AddWithValue("@StuId", user);
+            cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Book added to cart successfully.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding book to cart: " + ex.Message);
+            }
+        }
+
+        private void btnShowBook_Click(object sender, EventArgs e)
+        {
+            cartPanel.Visible = false;
+            stuPanel1.Visible = true;
+            
+        }
+        private void btnCart_Click(object sender, EventArgs e)
+        {
+            stuPanel1.Visible = false;
+            cartPanel.Visible = false;
+            cartPanel.Visible = true;
+            showCart(user);
+        }
+
+        public void showCart(string stuId)
+        {
+            using SqlConnection conn = new SqlConnection(connectionString) ;
+            conn.Open();
+
+            string query = @"SELECT b.Bookid, b.Title, b.Author, b.ISBN, c.Date
+                 FROM BOOK b
+                 INNER JOIN Cart c ON b.Bookid = c.BookId
+                 WHERE c.StuId = @StuId";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@StuId", stuId);
+                
+
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                cartGridView.DataSource = dt;
+            
+        }
 
         
     }
+
+
 }

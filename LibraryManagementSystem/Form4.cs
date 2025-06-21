@@ -14,8 +14,11 @@ using System.Security.Policy;
 
 namespace LibraryManagementSystem
 {
+
     public partial class manageBook : Form
     {
+        string connectionString = "Data source=(localdb)\\MSSQLLocalDB; Initial Catalog=LibraryManagement; Integrated Security=True;";
+
         public manageBook()
         {
             InitializeComponent();
@@ -24,18 +27,18 @@ namespace LibraryManagementSystem
 
         private void btnBookAdd_Click(object sender, EventArgs e)
         {
-            string title=txtBookTitle.Text;
-            string author=txtBookAuthor.Text;
-            string isbn=txtBookISBN.Text;
-            string category=txtBookCategory.Text;
+            string title = txtBookTitle.Text;
+            string author = txtBookAuthor.Text;
+            string isbn = txtBookISBN.Text;
+            string category = txtBookCategory.Text;
             Book bk = new Book(title, author, isbn, category);
             bk.addBook();
             loadData();
-            
+            clearBoxes();
+
         }
         public void loadData()
         {
-            string connectionString = "Data source=(localdb)\\MSSQLLocalDB; Initial Catalog=LibraryManagement; Integrated Security=True;";
             using SqlConnection conn = new SqlConnection(connectionString);
             string query = "SELECT * FROM BOOK";
             SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
@@ -43,6 +46,61 @@ namespace LibraryManagementSystem
             adapter.Fill(dataTable);
             bookDataGrid.DataSource = dataTable;
 
+        }
+
+        private void bookDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = bookDataGrid.Rows[e.RowIndex];
+                txtBookTitle.Text = row.Cells["Title"].Value.ToString();
+                txtBookAuthor.Text = row.Cells["Author"].Value.ToString();
+                txtBookISBN.Text = row.Cells["ISBN"].Value.ToString();
+                txtBookCategory.Text = row.Cells["Category"].Value.ToString();
+            }
+        }
+
+        private void btnBookDelete_Click(object sender, EventArgs e)
+        {
+
+            using SqlConnection conn = new SqlConnection(connectionString);
+            string query = "DELETE FROM BOOK WHERE Title=@Title";
+            conn.Open();
+            using SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Title", txtBookTitle.Text);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Book Deleted Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            clearBoxes();
+            loadData();
+
+
+        }
+
+        private void btnBookUpdate_Click(object sender, EventArgs e)
+        {
+            using SqlConnection conn = new SqlConnection(connectionString);
+            string query = "UPDATE BOOK SET Author = @Author, ISBN = @ISBN, Category = @Category WHERE Title = @Title";
+            conn.Open();
+            using SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@Title", txtBookTitle.Text);
+            cmd.Parameters.AddWithValue("@Author", txtBookAuthor.Text);
+            cmd.Parameters.AddWithValue("@ISBN", txtBookISBN.Text);
+            cmd.Parameters.AddWithValue("@Category", txtBookCategory.Text);
+            cmd.ExecuteNonQuery();
+            loadData();
+            clearBoxes();
+        }
+        public void clearBoxes()
+        {
+            txtBookTitle.Clear();
+            txtBookAuthor.Clear();
+            txtBookISBN.Clear();
+            txtBookCategory.Clear();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearBoxes();
         }
     }
     public class Book

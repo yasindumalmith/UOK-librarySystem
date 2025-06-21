@@ -38,8 +38,9 @@
             txtBookCategory = new TextBox();
             btnBookAdd = new Button();
             btnBookDelete = new Button();
-            btnBookSearch = new Button();
+            btnBookUpdate = new Button();
             bookDataGrid = new DataGridView();
+            btnClear = new Button();
             ((System.ComponentModel.ISupportInitialize)bookDataGrid).BeginInit();
             SuspendLayout();
             // 
@@ -125,15 +126,17 @@
             btnBookDelete.TabIndex = 9;
             btnBookDelete.Text = "Delete";
             btnBookDelete.UseVisualStyleBackColor = true;
+            btnBookDelete.Click += btnBookDelete_Click;
             // 
-            // btnBookSearch
+            // btnBookUpdate
             // 
-            btnBookSearch.Location = new Point(267, 314);
-            btnBookSearch.Name = "btnBookSearch";
-            btnBookSearch.Size = new Size(94, 29);
-            btnBookSearch.TabIndex = 10;
-            btnBookSearch.Text = "Search";
-            btnBookSearch.UseVisualStyleBackColor = true;
+            btnBookUpdate.Location = new Point(267, 314);
+            btnBookUpdate.Name = "btnBookUpdate";
+            btnBookUpdate.Size = new Size(94, 29);
+            btnBookUpdate.TabIndex = 10;
+            btnBookUpdate.Text = "Update";
+            btnBookUpdate.UseVisualStyleBackColor = true;
+            btnBookUpdate.Click += btnBookUpdate_Click;
             // 
             // bookDataGrid
             // 
@@ -143,6 +146,17 @@
             bookDataGrid.RowHeadersWidth = 51;
             bookDataGrid.Size = new Size(435, 369);
             bookDataGrid.TabIndex = 11;
+            bookDataGrid.CellContentClick += bookDataGrid_CellContentClick;
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(137, 376);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(94, 29);
+            btnClear.TabIndex = 12;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // manageBook
             // 
@@ -150,8 +164,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
             ClientSize = new Size(842, 437);
+            Controls.Add(btnClear);
             Controls.Add(bookDataGrid);
-            Controls.Add(btnBookSearch);
+            Controls.Add(btnBookUpdate);
             Controls.Add(btnBookDelete);
             Controls.Add(btnBookAdd);
             Controls.Add(txtBookCategory);
@@ -181,7 +196,8 @@
         private TextBox txtBookCategory;
         private Button btnBookAdd;
         private Button btnBookDelete;
-        private Button btnBookSearch;
+        private Button btnBookUpdate;
         private DataGridView bookDataGrid;
+        private Button btnClear;
     }
 }

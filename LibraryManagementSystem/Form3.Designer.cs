@@ -60,6 +60,7 @@
             btnStuUpdate.TabIndex = 1;
             btnStuUpdate.Text = "Update";
             btnStuUpdate.UseVisualStyleBackColor = true;
+            btnStuUpdate.Click += btnStuUpdate_Click;
             // 
             // btnStuDelete
             // 
@@ -147,6 +148,7 @@
             studentDataGrid.ShowCellErrors = false;
             studentDataGrid.Size = new Size(395, 359);
             studentDataGrid.TabIndex = 11;
+            studentDataGrid.CellContentClick += studentDataGrid_CellContentClick;
             // 
             // manageStudent
             // 
