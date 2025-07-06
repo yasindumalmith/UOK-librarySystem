@@ -28,31 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            issuedReport = new DataGridView();
-            returnedDataGrid = new DataGridView();
             label1 = new Label();
             label2 = new Label();
-            ((System.ComponentModel.ISupportInitialize)issuedReport).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)returnedDataGrid).BeginInit();
             SuspendLayout();
-            // 
-            // issuedReport
-            // 
-            issuedReport.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            issuedReport.Location = new Point(75, 84);
-            issuedReport.Name = "issuedReport";
-            issuedReport.RowHeadersWidth = 51;
-            issuedReport.Size = new Size(391, 367);
-            issuedReport.TabIndex = 0;
-            // 
-            // returnedDataGrid
-            // 
-            returnedDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            returnedDataGrid.Location = new Point(510, 84);
-            returnedDataGrid.Name = "returnedDataGrid";
-            returnedDataGrid.RowHeadersWidth = 51;
-            returnedDataGrid.Size = new Size(398, 367);
-            returnedDataGrid.TabIndex = 1;
             // 
             // label1
             // 
@@ -82,20 +60,13 @@
             ClientSize = new Size(982, 553);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(returnedDataGrid);
-            Controls.Add(issuedReport);
             Name = "report";
             Text = "Report";
-            ((System.ComponentModel.ISupportInitialize)issuedReport).EndInit();
-            ((System.ComponentModel.ISupportInitialize)returnedDataGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView issuedReport;
-        private DataGridView returnedDataGrid;
         private Label label1;
         private Label label2;
     }

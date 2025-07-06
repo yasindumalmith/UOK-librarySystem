@@ -25,7 +25,7 @@ namespace LibraryManagementSystem
 
             InitializeComponent();
             loadCombo();
-            
+
         }
         public Student(string loggedInUser)
         {
@@ -34,7 +34,7 @@ namespace LibraryManagementSystem
             InitializeComponent();
             loadCombo();
             stuPanel1.Visible = false;
-            
+
 
         }
         public void loadCombo()
@@ -112,12 +112,12 @@ namespace LibraryManagementSystem
             {
                 MessageBox.Show("Error adding book to cart: " + ex.Message);
             }
-            
+
         }
 
         private void btnShowBook_Click(object sender, EventArgs e)
         {
-            
+
             stuPanel1.Visible = true;
 
         }
@@ -154,6 +154,15 @@ namespace LibraryManagementSystem
 
         private void cartPanel_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            formLogin loginForm = new formLogin();
+            
+            this.Hide();
+            loginForm.ShowDialog();
 
         }
     }

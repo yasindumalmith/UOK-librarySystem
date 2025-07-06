@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             stuPanel1 = new Panel();
-            label2 = new Label();
             cartGridView = new DataGridView();
+            label2 = new Label();
             btnShowRes = new Button();
             addToCart = new Button();
             stuClear = new Button();
@@ -65,6 +65,15 @@
             stuPanel1.Size = new Size(1082, 559);
             stuPanel1.TabIndex = 1;
             // 
+            // cartGridView
+            // 
+            cartGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            cartGridView.Location = new Point(612, 164);
+            cartGridView.Name = "cartGridView";
+            cartGridView.RowHeadersWidth = 51;
+            cartGridView.Size = new Size(400, 330);
+            cartGridView.TabIndex = 0;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -74,15 +83,6 @@
             label2.Size = new Size(106, 28);
             label2.TabIndex = 1;
             label2.Text = "Your Cart";
-            // 
-            // cartGridView
-            // 
-            cartGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            cartGridView.Location = new Point(612, 164);
-            cartGridView.Name = "cartGridView";
-            cartGridView.RowHeadersWidth = 51;
-            cartGridView.Size = new Size(400, 330);
-            cartGridView.TabIndex = 0;
             // 
             // btnShowRes
             // 
@@ -226,6 +226,7 @@
             btnLogout.TabIndex = 6;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // Student
             // 
