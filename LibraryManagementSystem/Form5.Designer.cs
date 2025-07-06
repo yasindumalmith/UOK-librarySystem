@@ -37,9 +37,10 @@
             // 
             // btnIssueBook
             // 
-            btnIssueBook.Location = new Point(357, 320);
+            btnIssueBook.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnIssueBook.Location = new Point(97, 329);
             btnIssueBook.Name = "btnIssueBook";
-            btnIssueBook.Size = new Size(104, 29);
+            btnIssueBook.Size = new Size(382, 50);
             btnIssueBook.TabIndex = 0;
             btnIssueBook.Text = "Issue Book";
             btnIssueBook.UseVisualStyleBackColor = true;
@@ -48,35 +49,37 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(220, 177);
+            label1.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            label1.Location = new Point(97, 122);
             label1.Name = "label1";
-            label1.Size = new Size(60, 20);
+            label1.Size = new Size(86, 24);
             label1.TabIndex = 1;
             label1.Text = "Student";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(220, 239);
+            label2.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            label2.Location = new Point(97, 217);
             label2.Name = "label2";
-            label2.Size = new Size(43, 20);
+            label2.Size = new Size(59, 24);
             label2.TabIndex = 2;
             label2.Text = "Book";
             // 
             // comIssStu
             // 
             comIssStu.FormattingEnabled = true;
-            comIssStu.Location = new Point(465, 174);
+            comIssStu.Location = new Point(259, 122);
             comIssStu.Name = "comIssStu";
-            comIssStu.Size = new Size(151, 28);
+            comIssStu.Size = new Size(220, 28);
             comIssStu.TabIndex = 3;
             // 
             // comIssBook
             // 
             comIssBook.FormattingEnabled = true;
-            comIssBook.Location = new Point(465, 236);
+            comIssBook.Location = new Point(259, 217);
             comIssBook.Name = "comIssBook";
-            comIssBook.Size = new Size(151, 28);
+            comIssBook.Size = new Size(220, 28);
             comIssBook.TabIndex = 4;
             // 
             // issueBook
@@ -84,13 +87,15 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            ClientSize = new Size(812, 452);
+            BackgroundImage = Properties.Resources.login;
+            ClientSize = new Size(582, 553);
             Controls.Add(comIssBook);
             Controls.Add(comIssStu);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnIssueBook);
             Name = "issueBook";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Issue Book";
             ResumeLayout(false);
             PerformLayout();

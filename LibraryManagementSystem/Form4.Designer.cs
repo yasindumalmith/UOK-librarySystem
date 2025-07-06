@@ -47,72 +47,77 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(58, 51);
+            label1.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            label1.Location = new Point(73, 71);
             label1.Name = "label1";
-            label1.Size = new Size(38, 20);
+            label1.Size = new Size(55, 24);
             label1.TabIndex = 0;
             label1.Text = "Title";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(58, 103);
+            label2.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            label2.Location = new Point(73, 158);
             label2.Name = "label2";
-            label2.Size = new Size(54, 20);
+            label2.Size = new Size(78, 24);
             label2.TabIndex = 1;
             label2.Text = "Author";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(58, 152);
+            label3.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            label3.Location = new Point(73, 246);
             label3.Name = "label3";
-            label3.Size = new Size(41, 20);
+            label3.Size = new Size(57, 24);
             label3.TabIndex = 2;
             label3.Text = "ISBN";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(58, 203);
+            label4.Font = new Font("Constantia", 12F, FontStyle.Bold);
+            label4.Location = new Point(73, 337);
             label4.Name = "label4";
-            label4.Size = new Size(69, 20);
+            label4.Size = new Size(95, 24);
             label4.TabIndex = 3;
             label4.Text = "Category";
             // 
             // txtBookTitle
             // 
-            txtBookTitle.Location = new Point(215, 51);
+            txtBookTitle.Location = new Point(196, 71);
             txtBookTitle.Name = "txtBookTitle";
-            txtBookTitle.Size = new Size(125, 27);
+            txtBookTitle.Size = new Size(207, 27);
             txtBookTitle.TabIndex = 4;
             // 
             // txtBookAuthor
             // 
-            txtBookAuthor.Location = new Point(215, 103);
+            txtBookAuthor.Location = new Point(196, 158);
             txtBookAuthor.Name = "txtBookAuthor";
-            txtBookAuthor.Size = new Size(125, 27);
+            txtBookAuthor.Size = new Size(207, 27);
             txtBookAuthor.TabIndex = 5;
             // 
             // txtBookISBN
             // 
-            txtBookISBN.Location = new Point(215, 149);
+            txtBookISBN.Location = new Point(196, 246);
             txtBookISBN.Name = "txtBookISBN";
-            txtBookISBN.Size = new Size(125, 27);
+            txtBookISBN.Size = new Size(207, 27);
             txtBookISBN.TabIndex = 6;
             // 
             // txtBookCategory
             // 
-            txtBookCategory.Location = new Point(215, 203);
+            txtBookCategory.Location = new Point(196, 337);
             txtBookCategory.Name = "txtBookCategory";
-            txtBookCategory.Size = new Size(125, 27);
+            txtBookCategory.Size = new Size(207, 27);
             txtBookCategory.TabIndex = 7;
             // 
             // btnBookAdd
             // 
-            btnBookAdd.Location = new Point(14, 314);
+            btnBookAdd.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnBookAdd.Location = new Point(73, 465);
             btnBookAdd.Name = "btnBookAdd";
-            btnBookAdd.Size = new Size(94, 29);
+            btnBookAdd.Size = new Size(100, 35);
             btnBookAdd.TabIndex = 8;
             btnBookAdd.Text = "Add";
             btnBookAdd.UseVisualStyleBackColor = true;
@@ -120,9 +125,10 @@
             // 
             // btnBookDelete
             // 
-            btnBookDelete.Location = new Point(137, 314);
+            btnBookDelete.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnBookDelete.Location = new Point(209, 465);
             btnBookDelete.Name = "btnBookDelete";
-            btnBookDelete.Size = new Size(94, 29);
+            btnBookDelete.Size = new Size(100, 35);
             btnBookDelete.TabIndex = 9;
             btnBookDelete.Text = "Delete";
             btnBookDelete.UseVisualStyleBackColor = true;
@@ -130,9 +136,10 @@
             // 
             // btnBookUpdate
             // 
-            btnBookUpdate.Location = new Point(267, 314);
+            btnBookUpdate.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnBookUpdate.Location = new Point(354, 465);
             btnBookUpdate.Name = "btnBookUpdate";
-            btnBookUpdate.Size = new Size(94, 29);
+            btnBookUpdate.Size = new Size(100, 35);
             btnBookUpdate.TabIndex = 10;
             btnBookUpdate.Text = "Update";
             btnBookUpdate.UseVisualStyleBackColor = true;
@@ -141,18 +148,19 @@
             // bookDataGrid
             // 
             bookDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            bookDataGrid.Location = new Point(396, 36);
+            bookDataGrid.Location = new Point(475, 71);
             bookDataGrid.Name = "bookDataGrid";
             bookDataGrid.RowHeadersWidth = 51;
-            bookDataGrid.Size = new Size(435, 369);
+            bookDataGrid.Size = new Size(435, 366);
             bookDataGrid.TabIndex = 11;
             bookDataGrid.CellContentClick += bookDataGrid_CellContentClick;
             // 
             // btnClear
             // 
-            btnClear.Location = new Point(137, 376);
+            btnClear.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
+            btnClear.Location = new Point(816, 465);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(94, 29);
+            btnClear.Size = new Size(100, 35);
             btnClear.TabIndex = 12;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
@@ -163,7 +171,8 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            ClientSize = new Size(842, 437);
+            BackgroundImage = Properties.Resources.login;
+            ClientSize = new Size(982, 553);
             Controls.Add(btnClear);
             Controls.Add(bookDataGrid);
             Controls.Add(btnBookUpdate);
@@ -178,6 +187,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "manageBook";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Manage Book";
             ((System.ComponentModel.ISupportInitialize)bookDataGrid).EndInit();
             ResumeLayout(false);

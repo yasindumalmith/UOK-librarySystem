@@ -36,26 +36,28 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(221, 207);
+            label1.Font = new Font("Constantia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(81, 133);
             label1.Name = "label1";
-            label1.Size = new Size(88, 20);
+            label1.Size = new Size(126, 24);
             label1.TabIndex = 0;
             label1.Text = "Issued Book";
             // 
             // comIssued
             // 
             comIssued.FormattingEnabled = true;
-            comIssued.Location = new Point(401, 204);
+            comIssued.Location = new Point(269, 133);
             comIssued.Name = "comIssued";
-            comIssued.Size = new Size(151, 28);
+            comIssued.Size = new Size(218, 28);
             comIssued.TabIndex = 1;
             comIssued.SelectedIndexChanged += comIssued_SelectedIndexChanged;
             // 
             // button1
             // 
-            button1.Location = new Point(315, 308);
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(81, 282);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(406, 50);
             button1.TabIndex = 2;
             button1.Text = "Return Book";
             button1.UseVisualStyleBackColor = true;
@@ -66,11 +68,13 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightBlue;
-            ClientSize = new Size(805, 450);
+            BackgroundImage = Properties.Resources.login;
+            ClientSize = new Size(582, 553);
             Controls.Add(button1);
             Controls.Add(comIssued);
             Controls.Add(label1);
             Name = "returnBook";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Return Book";
             ResumeLayout(false);
             PerformLayout();

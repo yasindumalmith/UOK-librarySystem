@@ -115,7 +115,7 @@ namespace LibraryManagementSystem
         {
             cartPanel.Visible = false;
             stuPanel1.Visible = true;
-            
+
         }
         private void btnCart_Click(object sender, EventArgs e)
         {
@@ -127,25 +127,33 @@ namespace LibraryManagementSystem
 
         public void showCart(string stuId)
         {
-            using SqlConnection conn = new SqlConnection(connectionString) ;
+            using SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
 
             string query = @"SELECT b.Bookid, b.Title, b.Author, b.ISBN, c.Date
                  FROM BOOK b
                  INNER JOIN Cart c ON b.Bookid = c.BookId
                  WHERE c.StuId = @StuId";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@StuId", stuId);
-                
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@StuId", stuId);
+
 
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                cartGridView.DataSource = dt;
-            
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            cartGridView.DataSource = dt;
+
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cartPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 
