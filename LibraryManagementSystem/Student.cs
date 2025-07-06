@@ -25,6 +25,7 @@ namespace LibraryManagementSystem
 
             InitializeComponent();
             loadCombo();
+            
         }
         public Student(string loggedInUser)
         {
@@ -33,7 +34,7 @@ namespace LibraryManagementSystem
             InitializeComponent();
             loadCombo();
             stuPanel1.Visible = false;
-            cartPanel.Visible = false;
+            
 
         }
         public void loadCombo()
@@ -58,6 +59,7 @@ namespace LibraryManagementSystem
 
             }
             reader1.Close();
+            showCart(user);
 
 
         }
@@ -104,24 +106,24 @@ namespace LibraryManagementSystem
             {
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Book added to cart successfully.");
+                showCart(user);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error adding book to cart: " + ex.Message);
             }
+            
         }
 
         private void btnShowBook_Click(object sender, EventArgs e)
         {
-            cartPanel.Visible = false;
+            
             stuPanel1.Visible = true;
 
         }
         private void btnCart_Click(object sender, EventArgs e)
         {
             stuPanel1.Visible = false;
-            cartPanel.Visible = false;
-            cartPanel.Visible = true;
             showCart(user);
         }
 

@@ -203,16 +203,13 @@ namespace LibraryManagementSystem
             Name = "Admin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Admin";
-            Load += Admin_Load;
+            
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
         }
 
-        private void Admin_Load(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         #endregion
 

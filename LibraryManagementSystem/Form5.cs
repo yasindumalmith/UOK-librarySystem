@@ -47,12 +47,15 @@ namespace LibraryManagementSystem
 
         private void btnIssueBook_Click(object sender, EventArgs e)
         {
-            string sql = "INSERT INTO issueBook (StudentId,BookId) " +
-                       "VALUES (@stuId,@BookId)";
+            DateTime now=DateTime.Now;
+            string sql = "INSERT INTO issueBook (StudentId,BookId,Date,Time) " +
+                       "VALUES (@stuId,@BookId,@Date,@Time)";
             using SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, connection);
             cmd.Parameters.AddWithValue("@BookId", comIssBook.Text);
             cmd.Parameters.AddWithValue("@stuId", comIssStu.Text);
+            cmd.Parameters.AddWithValue("@Date", now.Date);
+            cmd.Parameters.AddWithValue("@Time", now.TimeOfDay);
             connection.Open();
             cmd.ExecuteNonQuery();
             MessageBox.Show("Succesfully Issued", "Issue");
