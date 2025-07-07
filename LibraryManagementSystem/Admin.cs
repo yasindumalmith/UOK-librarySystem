@@ -15,7 +15,7 @@ namespace LibraryManagementSystem
         public Admin()
         {
             InitializeComponent();
-            panel1.Visible = false;
+            panel1.Visible = true;
 
         }
 

@@ -207,6 +207,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "register";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Register";
             ResumeLayout(false);
             PerformLayout();
