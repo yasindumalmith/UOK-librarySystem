@@ -159,10 +159,16 @@ namespace LibraryManagementSystem
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            formLogin loginForm = new formLogin();
-            
-            this.Hide();
-            loginForm.ShowDialog();
+            DialogResult result = MessageBox.Show("Are you sure you want to Logout?", "Confirm", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                formLogin loginForm = new formLogin();
+                loginForm.ShowDialog();
+                this.Show();
+            }
+
 
         }
     }
